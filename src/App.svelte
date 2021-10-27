@@ -13,7 +13,8 @@
 		width: 100vw;
 		height: 100vh;
 		margin: 0 auto;
-		background-image: url("/assets/img/bg_with_circles.svg");
+		background-image: url("/img/bg_with_circles.png");
+		background-repeat: no-repeat;
 
 	}
 
