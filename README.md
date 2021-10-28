@@ -1,5 +1,7 @@
-# Torikae
-### A Simple way to DeFi
+# Torikae 
+*A simple way to Defi*
+
+(**Frontend**)
 
 ## Authors
 
@@ -20,7 +22,7 @@ The frontend was made using **React 17** and **MUI v5** and has Light/Dark Modes
 ## Light Mode
 
 1. **Landing**
-![Light Mode](./repo_info/swap.jpg)
+![Light Mode](./repo_info/swap_light.jpg)
 
 2. **Dribble**
 ![Light Mode Dribble](./repo_info/Dribble_2.jpg)
@@ -32,4 +34,4 @@ The frontend was made using **React 17** and **MUI v5** and has Light/Dark Modes
 ![Dark Mode](./repo_info/swap.jpg)
 
 2. **Dribble**
-![Dark Mode Dribble](./repo_info/dribble.jpg)
+![Dark Mode Dribble](./repo_info/dribble.png)
