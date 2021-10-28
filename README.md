@@ -6,9 +6,9 @@
 ## Authors
 
 This project was made by the following authors:-
-1. Bhaskar Dutta (Blockchain Backend)
+1. [Bhaskar Dutta](https://github.com/BhaskarDutta2209) (Blockchain Backend)
 2. Abhik Banerjee (Frontend and Solana Development)
-3. Ishika Majumdar (UI/UX)
+3. [Ishika Majumdar](https://dribbble.com/seibyo) (UI/UX)
 
 ## Steps to follow
 
