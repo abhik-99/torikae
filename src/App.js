@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { useState} from 'react';
-import { Container, Button, Stack, Grid, ButtonBase, Select, MenuItem, TextField, Grow } from '@mui/material';
+import { Container, Button, Stack, Grid, ButtonBase, Select, MenuItem, TextField, Grow, Hidden } from '@mui/material';
 import {css} from "@emotion/react";
 import { ThemeProvider } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -8,9 +8,9 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
-import bg_dark_desktop from './assets/img/bg_dark_desktop.jpeg';
-import bg_dark_mobile from './assets/img/bg_dark_mobile.jpeg';
-import bg_light from './assets/img/bg_light_desktop.jpeg';
+import bg_dark_desktop from './assets/img/bg_with_circles.png';
+// import bg_dark_mobile from './assets/img/bg_dark_mobile.jpeg';
+// import bg_light from './assets/img/bg_light_desktop.jpeg';
 import { createTheme } from '@mui/material/styles';
 import lightTheme from './assets/themes/lightTheme';
 import darkTheme from './assets/themes/darkTheme';
@@ -22,13 +22,16 @@ function App() {
   const [mode, setMode] = useState("dark");
   const theme = createTheme(mode === 'light' ? lightTheme : darkTheme);
   console.log(useMediaQuery(theme.breakpoints.down("xs")), useMediaQuery(theme.breakpoints.down("sm")), useMediaQuery(theme.breakpoints.down("md")), useMediaQuery(theme.breakpoints.down("lg")), useMediaQuery(theme.breakpoints.down("xl")));
-  const bg_dark = useMediaQuery(theme.breakpoints.down("sm")) ? bg_dark_mobile : bg_dark_desktop;
+  // const bg_dark = useMediaQuery(theme.breakpoints.down("sm")) ? bg_dark_mobile : bg_dark_desktop;
   console.log("THEME", theme);
+
+  // background-image: url(${theme.palette.mode === 'light' ? bg_light : bg_dark});
+
   return (
     <ThemeProvider theme={theme}>
       <div css={css`
       height: 100vh;
-      background-image: url(${theme.palette.mode === 'light' ? bg_light : bg_dark});
+      background-image: url(${bg_dark_desktop});
       background-size: cover;
       background-repeat: no-repeat;
       `}>
@@ -45,12 +48,12 @@ function App() {
               justifyContent="center"
               alignItems="center">
                 <div css={css`
-                  width: 300px;
-                  height: 100px;
+                  width: ${ useMediaQuery(theme.breakpoints.down("sm")) ? "195px" : "300px"};
+                  height: ${ useMediaQuery(theme.breakpoints.down("sm")) ? "65px" : "100px"};
                   background: ${theme.palette.mode === "dark" ? 'linear-gradient(275.94deg, rgba(101, 100, 100, 0.4) 0%, rgba(0, 0, 0, 0.4) 98.45%)' : '#ffffff'};
                   backdrop-filter: blur(30px);
                   /* Note: backdrop-filter has minimal browser support */
-                  border-radius: 30px;
+                  border-radius: ${ useMediaQuery(theme.breakpoints.down("sm")) ? "19.5px" : "30px"};
                   display: flex;
                   justify-content: center;
                   align-items: center;
@@ -85,12 +88,12 @@ function App() {
                   </Select>
                 </div>
                 <div css={css`
-                  width: 300px;
-                  height: 100px;
+                  width: ${ useMediaQuery(theme.breakpoints.down("sm")) ? "195px" : "300px"};
+                  height: ${ useMediaQuery(theme.breakpoints.down("sm")) ? "65px" : "100px"};
                   background: ${theme.palette.mode === "dark" ? 'linear-gradient(275.94deg, rgba(101, 100, 100, 0.4) 0%, rgba(0, 0, 0, 0.4) 98.45%)' : '#ffffff'};
                   backdrop-filter: blur(30px);
                   /* Note: backdrop-filter has minimal browser support */
-                  border-radius: 30px;
+                  border-radius: ${ useMediaQuery(theme.breakpoints.down("sm")) ? "19.5px" : "30px"};
                   display: flex;
                   justify-content: center;
                   align-items: center;
@@ -105,11 +108,13 @@ function App() {
               <Stack spacing={2}>
                 <ButtonBase>
                   <Grow in={true} timeout={800}>
-                    <img src={cartoon} alt="yoyo!" />
+                    <img src={cartoon} alt="yoyo!" height={ useMediaQuery(theme.breakpoints.down("md")) ? "80px" : "240px"}/>
                   </Grow>
                 </ButtonBase>
                 <Box>
-                  <Button color="primary" variant="contained" css={css`text-tranform: none; border-radius: 22.9918px;`}>Exchange</Button>
+                  <Hidden mdDown>
+                    <Button color="primary" variant="contained" css={css`text-tranform: none; border-radius: 22.9918px;`}>Exchange</Button>
+                  </Hidden>
                 </Box>
               </Stack>
             </Grid>
@@ -118,17 +123,17 @@ function App() {
               justifyContent="center"
               alignItems="center">
                 <div css={css`
-                  width: 300px;
-                  height: 100px;
+                  width: ${ useMediaQuery(theme.breakpoints.down("sm")) ? "195px" : "300px"};
+                  height: ${ useMediaQuery(theme.breakpoints.down("sm")) ? "65px" : "100px"};
                   background: ${theme.palette.mode === "dark" ? 'linear-gradient(275.94deg, rgba(101, 100, 100, 0.4) 0%, rgba(0, 0, 0, 0.4) 98.45%)' : '#ffffff'};
                   backdrop-filter: blur(30px);
                   /* Note: backdrop-filter has minimal browser support */
-                  border-radius: 30px;
+                  border-radius: ${ useMediaQuery(theme.breakpoints.down("sm")) ? "19.5px" : "30px"};
                   display: flex;
                   justify-content: center;
                   align-items: center;
                   padding: ${theme.spacing(2)}
-                `}>
+                  `}>
                   <Select
                   variant="standard"
                   labelId="demo-simple-select-standard-label"
@@ -155,12 +160,12 @@ function App() {
                   </Select>
                 </div>
                 <div css={css`
-                  width: 300px;
-                  height: 100px;
+                  width: ${ useMediaQuery(theme.breakpoints.down("sm")) ? "195px" : "300px"};
+                  height: ${ useMediaQuery(theme.breakpoints.down("sm")) ? "65px" : "100px"};
                   background: ${theme.palette.mode === "dark" ? 'linear-gradient(275.94deg, rgba(101, 100, 100, 0.4) 0%, rgba(0, 0, 0, 0.4) 98.45%)' : '#ffffff'};
                   backdrop-filter: blur(30px);
                   /* Note: backdrop-filter has minimal browser support */
-                  border-radius: 30px;
+                  border-radius: ${ useMediaQuery(theme.breakpoints.down("sm")) ? "19.5px" : "30px"};
                   display: flex;
                   justify-content: center;
                   align-items: center;
@@ -169,6 +174,11 @@ function App() {
                   <TextField variant="standard" placeholder="amount" fullWidth/>
                 </div>
               </Stack>
+            </Grid>
+            <Grid item xs={12} align="center">
+              <Hidden mdUp>
+                <Button color="primary" variant="contained" css={css`text-tranform: none; border-radius: 22.9918px;`}>Exchange</Button>
+              </Hidden>
             </Grid>
           </Grid>
         </Container>
