@@ -1,12 +1,14 @@
-# Torikae
-### A Simple way to DeFi
+# Torikae 
+*A simple way to Defi*
+
+(**Frontend**)
 
 ## Authors
 
 This project was made by the following authors:-
-1. Bhaskar Dutta (Blockchain Backend)
+1. [Bhaskar Dutta](https://github.com/BhaskarDutta2209) (Blockchain Backend)
 2. Abhik Banerjee (Frontend and Solana Development)
-3. Ishika Majumdar (UI/UX)
+3. [Ishika Majumdar](https://dribbble.com/seibyo) (UI/UX)
 
 ## Steps to follow
 
@@ -20,7 +22,7 @@ The frontend was made using **React 17** and **MUI v5** and has Light/Dark Modes
 ## Light Mode
 
 1. **Landing**
-![Light Mode](./repo_info/swap.jpg)
+![Light Mode](./repo_info/swap_light.jpg)
 
 2. **Dribble**
 ![Light Mode Dribble](./repo_info/Dribble_2.jpg)
@@ -32,4 +34,4 @@ The frontend was made using **React 17** and **MUI v5** and has Light/Dark Modes
 ![Dark Mode](./repo_info/swap.jpg)
 
 2. **Dribble**
-![Dark Mode Dribble](./repo_info/dribble.jpg)
+![Dark Mode Dribble](./repo_info/dribble.png)
