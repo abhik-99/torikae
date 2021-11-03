@@ -19,7 +19,6 @@ const Footer = (props) => {
 			}}>
 				<CustomSwitch toggleFunc={toggleMode} leftText="Light" rightText="Dark"/>
 			</Box>
-			<Toolbar />
 		</footer>
 	)
 }

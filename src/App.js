@@ -8,7 +8,8 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
-import bg_dark_desktop from './assets/img/bg_with_circles.png';
+import bg_dark_desktop from './assets/img/dark_bg_with_circles_desktop.png';
+import bg_light_desktop from './assets/img/light_bg_with_circles_desktop.jpeg';
 // import bg_dark_mobile from './assets/img/bg_dark_mobile.jpeg';
 // import bg_light from './assets/img/bg_light_desktop.jpeg';
 import { createTheme } from '@mui/material/styles';
@@ -25,13 +26,12 @@ function App() {
   // const bg_dark = useMediaQuery(theme.breakpoints.down("sm")) ? bg_dark_mobile : bg_dark_desktop;
   console.log("THEME", theme);
 
-  // background-image: url(${theme.palette.mode === 'light' ? bg_light : bg_dark});
 
   return (
     <ThemeProvider theme={theme}>
       <div css={css`
       height: 100vh;
-      background-image: url(${bg_dark_desktop});
+      background-image: url(${theme.palette.mode === 'light' ? bg_light_desktop : bg_dark_desktop});
       background-size: cover;
       background-repeat: no-repeat;
       `}>
@@ -39,10 +39,24 @@ function App() {
 
         <Container css={css`
         min-width: 100%;
-        margin: ${theme.spacing(20)} 0;
+        margin: ${useMediaQuery(theme.breakpoints.up("lg")) ? theme.spacing(20) : theme.spacing(4)} 0;
         padding: 0 ${theme.spacing(3)};
         `}>
           <Grid container spacing={2} alignItems="center" justifyContent="center">
+            <Hidden smUp>
+              <Grid item xs={12} >
+
+                <Stack direction="row" spacing={2} justifyContent="center">
+                  <Button variant="contained" css={css`text-transform: none; padding: ${theme.spacing(1)} ${theme.spacing(3)}; border-radius: 22.9918px;`}>
+                    Cross-chain Swap
+                  </Button>
+                  <Button variant="contained" css={css`text-transform: none; padding: ${theme.spacing(1)} ${theme.spacing(3)}; border-radius: 22.9918px;`}>
+                    ERC-20 Swap
+                  </Button>
+                </Stack>
+
+              </Grid>
+            </Hidden>
             <Grid item xs={12} md={8} lg={4} align="center">
               <Stack spacing={2}
               justifyContent="center"
@@ -50,7 +64,7 @@ function App() {
                 <div css={css`
                   width: ${ useMediaQuery(theme.breakpoints.down("sm")) ? "195px" : "300px"};
                   height: ${ useMediaQuery(theme.breakpoints.down("sm")) ? "65px" : "100px"};
-                  background: ${theme.palette.mode === "dark" ? 'linear-gradient(275.94deg, rgba(101, 100, 100, 0.4) 0%, rgba(0, 0, 0, 0.4) 98.45%)' : '#ffffff'};
+                  background: ${theme.palette.mode === "dark" ? 'linear-gradient(275.94deg, rgba(101, 100, 100, 0.4) 0%, rgba(0, 0, 0, 0.4) 98.45%)' : 'rgba(255, 255, 255, 0.5)'};
                   backdrop-filter: blur(30px);
                   /* Note: backdrop-filter has minimal browser support */
                   border-radius: ${ useMediaQuery(theme.breakpoints.down("sm")) ? "19.5px" : "30px"};
@@ -90,7 +104,7 @@ function App() {
                 <div css={css`
                   width: ${ useMediaQuery(theme.breakpoints.down("sm")) ? "195px" : "300px"};
                   height: ${ useMediaQuery(theme.breakpoints.down("sm")) ? "65px" : "100px"};
-                  background: ${theme.palette.mode === "dark" ? 'linear-gradient(275.94deg, rgba(101, 100, 100, 0.4) 0%, rgba(0, 0, 0, 0.4) 98.45%)' : '#ffffff'};
+                  background: ${theme.palette.mode === "dark" ? 'linear-gradient(275.94deg, rgba(101, 100, 100, 0.4) 0%, rgba(0, 0, 0, 0.4) 98.45%)' : 'rgba(255, 255, 255, 0.5)'};
                   backdrop-filter: blur(30px);
                   /* Note: backdrop-filter has minimal browser support */
                   border-radius: ${ useMediaQuery(theme.breakpoints.down("sm")) ? "19.5px" : "30px"};
@@ -125,7 +139,7 @@ function App() {
                 <div css={css`
                   width: ${ useMediaQuery(theme.breakpoints.down("sm")) ? "195px" : "300px"};
                   height: ${ useMediaQuery(theme.breakpoints.down("sm")) ? "65px" : "100px"};
-                  background: ${theme.palette.mode === "dark" ? 'linear-gradient(275.94deg, rgba(101, 100, 100, 0.4) 0%, rgba(0, 0, 0, 0.4) 98.45%)' : '#ffffff'};
+                  background: ${theme.palette.mode === "dark" ? 'linear-gradient(275.94deg, rgba(101, 100, 100, 0.4) 0%, rgba(0, 0, 0, 0.4) 98.45%)' : 'rgba(255, 255, 255, 0.5)'};
                   backdrop-filter: blur(30px);
                   /* Note: backdrop-filter has minimal browser support */
                   border-radius: ${ useMediaQuery(theme.breakpoints.down("sm")) ? "19.5px" : "30px"};
@@ -162,7 +176,7 @@ function App() {
                 <div css={css`
                   width: ${ useMediaQuery(theme.breakpoints.down("sm")) ? "195px" : "300px"};
                   height: ${ useMediaQuery(theme.breakpoints.down("sm")) ? "65px" : "100px"};
-                  background: ${theme.palette.mode === "dark" ? 'linear-gradient(275.94deg, rgba(101, 100, 100, 0.4) 0%, rgba(0, 0, 0, 0.4) 98.45%)' : '#ffffff'};
+                  background: ${theme.palette.mode === "dark" ? 'linear-gradient(275.94deg, rgba(101, 100, 100, 0.4) 0%, rgba(0, 0, 0, 0.4) 98.45%)' : 'rgba(255, 255, 255, 0.5)'};
                   backdrop-filter: blur(30px);
                   /* Note: backdrop-filter has minimal browser support */
                   border-radius: ${ useMediaQuery(theme.breakpoints.down("sm")) ? "19.5px" : "30px"};
@@ -180,6 +194,9 @@ function App() {
                 <Button color="primary" variant="contained" css={css`text-tranform: none; border-radius: 22.9918px;`}>Exchange</Button>
               </Hidden>
             </Grid>
+            {/* <Grid item xs={12} justifyContent="flex-end">
+              <CustomSwitch toggleFunc={() => mode === "dark" ? setMode("light") : setMode("dark")} leftText="Light" rightText="Dark"/>
+            </Grid> */}
           </Grid>
         </Container>
 

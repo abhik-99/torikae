@@ -3,9 +3,7 @@ import {css, useTheme} from "@emotion/react";
 
 import logo from '../assets/img/logo.svg';
 
-import { Box } from '@mui/system';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { AppBar, Button, IconButton, Paper, Icon, Toolbar, Typography, ButtonBase, Grow } from '@mui/material';
+import { AppBar, Button, Hidden, Icon, Toolbar, Typography, ButtonBase, Grow, Stack } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 const Header = () => {
 
@@ -26,17 +24,16 @@ const Header = () => {
 						<Typography variant={useMediaQuery(theme.breakpoints.down("sm")) ? "h5" : "h2"} color={ theme.palette.mode === "light" ? "primary.dark" : "textPrimary"}>Torikae</Typography>
 					</ButtonBase>
 				</Grow>
-				<Box sx={{
-					display: 'flex',
-					justifyContent: 'center',
-					alignItems: 'center'
-				}}>
-					<Button variant="contained" css={css`text-transform: none; padding: ${theme.spacing(1)} ${theme.spacing(3)}; border-radius: 22.9918px;`}>
-						<Typography variant={useMediaQuery(theme.breakpoints.down("sm")) ? "caption" : "body2"}>
-							Connect to <br/> Wallet
-						</Typography>
-					</Button>
-				</Box>
+				<Hidden smDown>
+					<Stack direction="row" spacing={2}>
+						<Button variant="contained" css={css`text-transform: none; padding: ${theme.spacing(1)} ${theme.spacing(3)}; border-radius: 22.9918px;`}>
+							Cross-chain Swap
+						</Button>
+						<Button variant="contained" css={css`text-transform: none; padding: ${theme.spacing(1)} ${theme.spacing(3)}; border-radius: 22.9918px;`}>
+							ERC-20 Swap
+						</Button>
+					</Stack>
+				</Hidden>
 			</Toolbar>
 		</AppBar>
 	)
